@@ -15,6 +15,13 @@ axios.interceptors.request.use(
 //添加响应拦截器
 axios.interceptors.request.use(
   function (response) {
+    if (
+      response.data.status === 1 &&
+      response.data.message === "身份认证失败!"
+    ) {
+      localStorage.removeItem("token");
+      location.href = "/home/login.html";
+    }
     return response;
   },
   function (error) {
