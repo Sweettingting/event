@@ -3,7 +3,7 @@ axios.defaults.baseURL = "http://api-breakingnews-web.itheima.net";
 //添加请求拦截
 axios.interceptors.request.use(
   function (config) {
-    if (config.url.indexOf("/my/userinfo") !== -1) {
+    if (config.url.indexOf("/my") !== -1) {
       config.headers.Authorization = localStorage.getItem("token");
     }
     return config;
@@ -13,7 +13,7 @@ axios.interceptors.request.use(
   }
 );
 //添加响应拦截器
-axios.interceptors.request.use(
+axios.interceptors.response.use(
   function (response) {
     if (
       response.data.status === 1 &&

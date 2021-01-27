@@ -1,7 +1,7 @@
 //处理头像和昵称
 function getUserInfo() {
   axios.get("/my/userinfo").then((res) => {
-    console.log(res);
+    //console.log(res);
     let name = res.data.data.nickname || res.data.data.username;
     $("#welcome").text("欢迎 " + name);
     if (res.data.data.user_pic) {
