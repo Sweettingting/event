@@ -26,6 +26,8 @@ $(function () {
       }
       layer.msg("更新密码成功");
       $("#form")[0].reset();
+      localStorage.removeItem("token");
+      window.parent.location.href = "/home/login.html";
     });
   });
 });
